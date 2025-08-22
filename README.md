@@ -1,8 +1,3 @@
-from pathlib import Path
-
-# Functional Requirements Document Content (Markdown)
-fr_content = """
-# Library Management System - Functional Requirements
 
 ## 1. Users & Roles
 **User Roles:**
@@ -89,10 +84,4 @@ System generates analytics on:
 - **Damaged Books:** Status updated, may incur replacement cost.
 - **Multiple Reservations:** Handled in FIFO order.
 """
-
-# Save as Markdown file
-output_path = Path("/mnt/data/library_functional_requirements.md")
-output_path.write_text(fr_content)
-
-output_path
 
