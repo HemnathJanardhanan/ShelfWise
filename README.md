@@ -85,9 +85,15 @@ System generates analytics on:
 - **Multiple Reservations:** Handled in FIFO order.
 """
 
+---
+## 📌 ERD Diagram
 
+Here’s the database structure for **ShelfWise**:
 
-### Entities & Requirements:
+![ShelfWise ERD](./assets/ERD_SHELFWISE.png)
+---
+
+## Entities & Requirements:
 
 1. **User**
    - Fields: user_id (PK), name, email (unique), password_hash, role (ENUM: ADMIN, FACULTY, STUDENT), contact_number, created_at, updated_at, status.
@@ -108,11 +114,11 @@ System generates analytics on:
   
 3. **Book Copy**
 - Fields : book_copy_id(pk), book_id(FK -> Book), Location, status (ENUM→AVAILABLE, CHECKED_OUT, RESERVED, LOST, DAMAGED)
-- RelationShips : 
+- Relationships : 
    - Many Book Copy -> one Book
 
 4. **Author**
-- Fields : author_id(pk), authorname
+- Fields : author_id(pk), authorName
 - Relationships:
     - Many Author -> Many Book
     
