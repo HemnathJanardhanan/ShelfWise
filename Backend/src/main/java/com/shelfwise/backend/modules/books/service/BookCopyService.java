@@ -7,6 +7,7 @@ import com.shelfwise.backend.modules.books.repository.BookCopyRepository;
 import com.shelfwise.backend.modules.books.utils.dto.BookCopyDto;
 import com.shelfwise.backend.modules.books.utils.dto.BookCopyRequest;
 import com.shelfwise.backend.modules.books.utils.mapper.BookCopyMapper;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,5 +26,12 @@ public class BookCopyService {
         BookCopy bookCopySaved = copyRepo.save(bookCopy);
         return mapper.toBookCopyDto(bookCopySaved);
     }
+
+    public BookCopyDto getBookCopy(Long id) {
+        BookCopy bookCopy = copyRepo.findByBookCopyId(id).orElseThrow(()-> new EntityNotFoundException("BookCopy not found"));
+        return mapper.toBookCopyDto(bookCopy);
+    }
+
+//    public BookCopyDto updateBookCopy() {}
 
 }

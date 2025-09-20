@@ -1,7 +1,7 @@
 package com.shelfwise.backend.modules.books.models;
 
 public enum BookStatus {
-    BORROWED,
+    CHECKED_OUT,
     RESERVED,
     LOST,
     DAMAGED,

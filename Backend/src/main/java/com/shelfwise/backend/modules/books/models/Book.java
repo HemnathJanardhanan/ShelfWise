@@ -3,9 +3,9 @@ package com.shelfwise.backend.modules.books.models;
 
 import com.shelfwise.backend.modules.author.Author;
 import com.shelfwise.backend.modules.publisher.Publisher;
+import com.shelfwise.backend.modules.reservation.models.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
@@ -51,8 +51,6 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookCopy> bookCopies = new ArrayList<>();
 
-
-//    @OneToMany(mappedBy = "book")
-//    private List<BorrowRecord> borrowRecords;
-
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<Reservation> reservations = new ArrayList<>();
 }

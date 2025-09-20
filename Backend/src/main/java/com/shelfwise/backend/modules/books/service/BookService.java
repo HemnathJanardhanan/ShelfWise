@@ -42,6 +42,7 @@ public class BookService {
         }
         return authors;
     }
+
     public Publisher validatePublisher(String req){
 
         Publisher publisherObj = publisherRepo.findByPublisherName(req)
@@ -51,8 +52,11 @@ public class BookService {
     }
 
     public BookDto addBook(NewBookRequest req) {
+
         String[] input=req.getAuthors().split(",");
+
         List<Author> authors=validateAuthor(input);
+
         Publisher publishers=validatePublisher(req.getPublisher());
 
         Book newBook = Book.builder()
@@ -62,7 +66,6 @@ public class BookService {
                 .publishDate(req.getPublishDate())
                 .genre(req.getGenre())
                 .isbn(req.getIsbn())
-
                 .build();
         
         Book saved = bookrepo.save(newBook);

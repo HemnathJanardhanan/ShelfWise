@@ -6,10 +6,7 @@ import com.shelfwise.backend.modules.books.utils.dto.BookCopyDto;
 import com.shelfwise.backend.modules.books.utils.dto.BookCopyRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/bookcopy")
@@ -27,4 +24,12 @@ public class BookCopyController {
         return ResponseEntity.ok().body(dto);
 
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<BookCopyDto> getBookCopyById(@Valid @PathVariable Long id) {
+        BookCopyDto dto = bookCopyService.getBookCopy(id);
+        return ResponseEntity.ok().body(dto);
+
+    }
+
+
 }

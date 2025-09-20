@@ -14,7 +14,7 @@ import java.util.List;
 
 @Data
 public class BookDto {
-    private long bookId;
+    private Long bookId;
 
     private String title;
 
